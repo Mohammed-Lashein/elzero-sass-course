@@ -36,3 +36,56 @@ $alt_color: green;
     color: lime;
   }
 } 
+
+// nesting 
+.parent > {
+  .child {
+    padding: 20px;
+  }
+  .test {
+    padding: 20px;
+  }
+}
+
+// I don't know why the sass compiler doesn't do that grouping when two child classes
+// have the same properties in them . 
+/*
+  Ans : That's the work of something like postcss-merge-rules . Sass just compiles sass
+  code to css. It doesn't do any logical grouping for our code . 
+*/
+.parent > .child,
+.parent > .test {
+  padding: 20px;
+}
+.parent {
+  > .child {
+    margin: 20px;
+  }
+  .test {
+    padding: 2px;
+  }
+  &.red {
+    color: red;
+  }
+  &.xl {
+    // Not the real value associated with a tailwind class . Just a class I invented !
+    font-size: 24px; 
+  }
+  &:hover {
+    background-color: #ddd;
+  }
+  &:hover {
+    .title {
+      font-weight: bold;
+    }
+  }
+  /* 
+  // another equivalent we can use , but the above uses sass nesting
+    &:hover .title {
+      font-weight: bold;
+    }
+  */
+  [dir=rtl] & {
+    direction: rtl;
+  }
+}
