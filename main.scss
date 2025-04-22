@@ -1,7 +1,38 @@
 // Import global rules from layout file 
 @use "./sass/layout/global-rules";
 @use "./sass/pages/contact";
+@use "./sass/variables/colors-hero";
+@use "./sass/variables/media-queries";
 
 .main {
   color: dodgerblue
 }
+// variables
+$alt_color: green;
+.header {
+  color: $alt_color;
+}
+.footer {
+  $alt_color: black;
+  $accent_color: yellow !global;
+  color: $alt_color;
+
+  .pudding {
+    color: $alt_color;
+  }
+}
+.copyright {
+  color: $alt_color;
+}
+.year {
+  color: $accent_color;
+}
+.month {
+  // color namespace stuff
+  color: colors-hero.$accent_color_vars_dir
+}
+@media screen and (media-queries.$max_mobile) {
+  .year {
+    color: lime;
+  }
+} 
