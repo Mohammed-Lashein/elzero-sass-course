@@ -4,3 +4,5 @@
   2. We can import the file without explicitly writing its extension (similar to what webpack allows us to do)
 ____
 - Variables follow namespaces (still to learn about it) so we need to prefix colors coming from a file with the filename (without the _ prefix)
+____
+As we can extend classes in OOP, we can extend classes but in css (in order to remove duplication and get the styles of a certain class applied by another class)

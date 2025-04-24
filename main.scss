@@ -89,3 +89,31 @@ $alt_color: green;
     direction: rtl;
   }
 }
+
+// property declarations and placeholder
+.box {
+  padding: {
+    top: 10px;
+    left: 12px;
+  }
+  margin: auto {
+    right: 10px;
+  }
+  border: 1px solid black {
+    right-color: coral;
+  }
+}
+.article {
+  @extend .box;
+  font-size: 20px;
+}
+
+// use a placeholder
+%secondary-button {
+  border: 1px solid hotpink;
+  color: white;
+  border-radius: 3rem;
+}
+.cta-button {
+  @extend %secondary-button;
+}
