@@ -1,0 +1,198 @@
+// 9th assignment stuff
+@use "./helpers/functions";
+@use "./helpers/vars";
+@use "./layout/footer";
+@use "./layout/header";
+
+// 1st assignment
+.content  {
+  > .box {
+    padding: 15px;
+    > .title {
+      font-size: 18px;
+    }
+  }
+  &.premium:before {
+    content: 'premium box';
+  }
+  &.premium:hover {
+    background-color: #eee;
+  }
+}
+.content {
+  > .cat {
+    padding: 15px;
+  }
+}
+/* 
+  I thought about using 
+  .content {
+  >.box, > .content {
+  padding: 15px
+}
+}
+However the output was not like the one in the assignment (The output was the 2 classes
+are grouped and this seems rational) . So I separated them to get the expected output
+*/
+
+
+// 2nd assignment
+.class > .child {
+  padding: 10px;
+}
+.class > {
+  .child {
+    padding: 10px
+  }
+}
+.class {
+  > .child {
+    padding: 10px;
+  }
+}
+// 3rd assignment
+.class {
+  font: {
+    size: 10px;
+    weight: bold;
+  }
+}
+
+// my previous solution from a year ago for 3rd assignment
+/* 
+  %general-styles {
+	font-weight: bold;
+	font-size: 20px;
+}
+.class {
+	@extend %general-styles;
+}
+*/
+
+// 4th assignment
+.parent {
+  // next sibling combinator
+  & + .sibling {
+    margin: auto {
+      top: 10px;
+    }
+    // subsequent sibling combinator
+    & ~ .last {
+      padding: 10px;
+    }
+  }
+}
+// 5th assignment
+// The Code
+.widget {
+  background-color: white;
+  padding: 20px;
+}
+.main-border {
+  border: 1px solid #CCC
+}
+.my-class {
+  @extend .widget, .main-border;
+  font-weight: bold;
+  margin: 20px auto;
+}
+
+// 6th assignment
+// The Code
+
+/* It is not apparent in the description of the assignment, but there is no other way
+to not show these classes in the output other than commenting them (because once they
+ exist in the code, there is no way not to compile them .   */
+
+// .widget {
+//   background-color: white;
+//   padding: 20px;
+// }
+// .main-border {
+//   border: 1px solid #CCC
+// }
+%placeholder-from-widget {
+  background-color: white;
+    padding: 20px;
+}
+%main-border {
+  border: 1px solid #CCC
+}
+.my-class {
+  @extend %placeholder-from-widget, %main-border;
+  font-weight: bold;
+  margin: 20px auto;
+}
+
+// 7th assignment
+.box {
+  .h2, .p {
+    font-size: 20px;
+    @media (max-width: 575px) {
+      font-size: 16px;
+    }
+    span {
+      font-weight: bold;
+    }
+  }
+}
+// 8th assignment
+// The Code
+// Do Not Edit Here
+$red: #e91e63;
+$green: #009688;
+
+// Add What You Want Here
+$link-color: $green;
+$link-hover: $red;
+// Do Not Edit Here
+.box a {
+  color: $link-color;
+  &:hover {
+    color: $link-hover;
+  }
+}
+// 9th assignment
+// - Project_Folder
+// --- Helpers
+// ------ _vars.scss
+// ------ _functions.scss
+// --- Layout
+// ------ _header.scss
+// ------ _footer.scss
+
+// trying the value from _vars.scss to see if the file is correctly imported
+h1 {
+  color: vars.$primary-color;
+}
+
+// 10th assignment
+.box {
+  font-size: 20px;
+  &-holder {
+    width: 1000px;
+    &-content {
+      margin: auto;
+    }
+  }
+}
+
+// My solution a year ago for this assignment, and I was wrong because this assignment
+// can be solved without using interpolation -which hasn't been explained yet-
+
+// After asking chatGPT, this assignment requires the use of string interpolation which hasn't been explained yet, so I will solve this assignment based on the answers I got 
+$var1: "box";
+$var2: "holder";
+// The double quotes are important -not single quotes - otherwise the code won't work . 
+
+.#{$var1} {
+	font-size: 20px;
+}
+.#{$var1}-holder {
+	width: 1000px;
+}
+.#{$var1}-#{$var2}-content {
+	margin: auto;
+}
+
+

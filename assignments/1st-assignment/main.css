@@ -1,0 +1,144 @@
+.footer {
+  font-weight: bold;
+}
+
+h1 {
+  color: dodgerblue;
+}
+
+.content > .box {
+  padding: 15px;
+}
+.content > .box > .title {
+  font-size: 18px;
+}
+.content.premium:before {
+  content: "premium box";
+}
+.content.premium:hover {
+  background-color: #eee;
+}
+
+.content > .cat {
+  padding: 15px;
+}
+
+/* 
+  I thought about using 
+  .content {
+  >.box, > .content {
+  padding: 15px
+}
+}
+However the output was not like the one in the assignment (The output was the 2 classes
+are grouped and this seems rational) . So I separated them to get the expected output
+*/
+.class > .child {
+  padding: 10px;
+}
+
+.class > .child {
+  padding: 10px;
+}
+
+.class > .child {
+  padding: 10px;
+}
+
+.class {
+  font-size: 10px;
+  font-weight: bold;
+}
+
+/* 
+  %general-styles {
+	font-weight: bold;
+	font-size: 20px;
+}
+.class {
+	@extend %general-styles;
+}
+*/
+.parent + .sibling {
+  margin: auto;
+  margin-top: 10px;
+}
+.parent + .sibling ~ .last {
+  padding: 10px;
+}
+
+.widget, .my-class {
+  background-color: white;
+  padding: 20px;
+}
+
+.main-border, .my-class {
+  border: 1px solid #CCC;
+}
+
+.my-class {
+  font-weight: bold;
+  margin: 20px auto;
+}
+
+/* It is not apparent in the description of the assignment, but there is no other way
+to not show these classes in the output other than commenting them (because once they
+ exist in the code, there is no way not to compile them .   */
+.my-class {
+  background-color: white;
+  padding: 20px;
+}
+
+.my-class {
+  border: 1px solid #CCC;
+}
+
+.my-class {
+  font-weight: bold;
+  margin: 20px auto;
+}
+
+.box .h2, .box .p {
+  font-size: 20px;
+}
+@media (max-width: 575px) {
+  .box .h2, .box .p {
+    font-size: 16px;
+  }
+}
+.box .h2 span, .box .p span {
+  font-weight: bold;
+}
+
+.box a {
+  color: #009688;
+}
+.box a:hover {
+  color: #e91e63;
+}
+
+h1 {
+  color: green;
+}
+
+.box {
+  font-size: 20px;
+}
+.box-holder {
+  width: 1000px;
+}
+.box-holder-content {
+  margin: auto;
+}
+
+.box {
+  font-size: 20px;
+}
+
+.box-holder {
+  width: 1000px;
+}
+
+.box-holder-content {
+  margin: auto;
+}/*# sourceMappingURL=main.css.map */
