@@ -1,136 +1,188 @@
-// Import global rules from layout file 
+// Import global rules from layout file
 @use "./sass/layout/global-rules";
 @use "./sass/pages/contact";
 @use "./sass/variables/colors-hero";
 @use "./sass/variables/media-queries";
 
 .main {
-  color: dodgerblue
+	color: dodgerblue;
 }
 // variables
 $alt_color: green;
 .header {
-  color: $alt_color;
+	color: $alt_color;
 }
 .footer {
-  $alt_color: black;
-  $accent_color: yellow !global;
-  color: $alt_color;
+	$alt_color: black;
+	$accent_color: yellow !global;
+	color: $alt_color;
 
-  .pudding {
-    color: $alt_color;
-  }
+	.pudding {
+		color: $alt_color;
+	}
 }
 .copyright {
-  color: $alt_color;
+	color: $alt_color;
 }
 .year {
-  color: $accent_color;
+	color: $accent_color;
 }
 .month {
-  // color namespace stuff
-  color: colors-hero.$accent_color_vars_dir
+	// color namespace stuff
+	color: colors-hero.$accent_color_vars_dir;
 }
 @media screen and (media-queries.$max_mobile) {
-  .year {
-    color: lime;
-  }
-} 
+	.year {
+		color: lime;
+	}
+}
 
-// nesting 
+// nesting
 .parent > {
-  .child {
-    padding: 20px;
-  }
-  .test {
-    padding: 20px;
-  }
+	.child {
+		padding: 20px;
+	}
+	.test {
+		padding: 20px;
+	}
 }
 
 // I don't know why the sass compiler doesn't do that grouping when two child classes
-// have the same properties in them . 
+// have the same properties in them .
 /*
   Ans : That's the work of something like postcss-merge-rules . Sass just compiles sass
   code to css. It doesn't do any logical grouping for our code . 
 */
 .parent > .child,
 .parent > .test {
-  padding: 20px;
+	padding: 20px;
 }
 .parent {
-  > .child {
-    margin: 20px;
-  }
-  .test {
-    padding: 2px;
-  }
-  &.red {
-    color: red;
-  }
-  &.xl {
-    // Not the real value associated with a tailwind class . Just a class I invented !
-    font-size: 24px; 
-  }
-  &:hover {
-    background-color: #ddd;
-  }
-  &:hover {
-    .title {
-      font-weight: bold;
-    }
-  }
-  /* 
+	> .child {
+		margin: 20px;
+	}
+	.test {
+		padding: 2px;
+	}
+	&.red {
+		color: red;
+	}
+	&.xl {
+		// Not the real value associated with a tailwind class . Just a class I invented !
+		font-size: 24px;
+	}
+	&:hover {
+		background-color: #ddd;
+	}
+	&:hover {
+		.title {
+			font-weight: bold;
+		}
+	}
+	/* 
   // another equivalent we can use , but the above uses sass nesting
     &:hover .title {
       font-weight: bold;
     }
   */
-  [dir=rtl] & {
-    direction: rtl;
-  }
+	[dir="rtl"] & {
+		direction: rtl;
+	}
 }
 
 // property declarations and placeholder
 .box {
-  padding: {
-    top: 10px;
-    left: 12px;
-  }
-  margin: auto {
-    right: 10px;
-  }
-  border: 1px solid black {
-    right-color: coral;
-  }
+	padding: {
+		top: 10px;
+		left: 12px;
+	}
+	margin: auto {
+		right: 10px;
+	}
+	border: 1px solid black {
+		right-color: coral;
+	}
 }
 .article {
-  @extend .box;
-  font-size: 20px;
+	@extend .box;
+	font-size: 20px;
 }
 
 // use a placeholder
 %secondary-button {
-  border: 1px solid hotpink;
-  color: white;
-  border-radius: 3rem;
+	border: 1px solid hotpink;
+	color: white;
+	border-radius: 3rem;
 }
 .cta-button {
-  @extend %secondary-button;
+	@extend %secondary-button;
 }
 
 // control flow
-$theme: 'dark';
+$theme: "dark";
 .page {
-  @if $theme == 'light' {
-    background-color: #ddd;
-  } @else {
-    background-color: #444;
-  }
+	@if $theme == "light" {
+		background-color: #ddd;
+	} @else {
+		background-color: #444;
+	}
 }
-
 
 $rounded: false;
 .my-box {
-  border-width: 4px;
-  border-radius: if($rounded, 12px, null);
+	border-width: 4px;
+	border-radius: if($rounded, 12px, null);
 }
+
+// Arrow container assignment
+// sass code -- ignoring js style of variable declaration
+$arrow_direction: "right";
+%arrow_pointing_upwards {
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-bottom-color: red;
+}
+%arrow_pointing_to_the_right {
+  top: 50%;
+  right: -40px;
+  transform: translateY(-50%);
+  border-left-color: red;
+}
+
+.arrow-container {
+  border: 1px solid black;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 20px;
+	width: 200px;
+	height: 200px;
+	position: relative;
+	margin: 50px auto;
+	&::before {
+		content: "";
+		position: absolute;
+		border: 20px solid transparent;
+    // I found that the element is centered by default, but I will add the below 
+    // code anyway for the sake of completeness
+    @if $arrow_direction == 'top' {
+      @extend %arrow_pointing_upwards;
+    } @else if $arrow_direction == 'right' {
+      @extend %arrow_pointing_to_the_right;
+    } @else if $arrow_direction == 'bottom' {
+      @extend %arrow_pointing_to_downwards;
+    } @else if $arrow_direction == 'left' {
+      @extend %arrow_pointing_to_the_left;
+    } @else {
+      @error "The provided direction #{$arrow_direction} is not valid";
+    }
+	}
+}
+
+// %arrow_pointing_to_the_right {
+//   top: 50%;
+//   right: -40px;
+//   transform: translateY(-50%);
+//   border-left-color: red;
+// }
