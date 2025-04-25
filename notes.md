@@ -8,3 +8,6 @@ ____
 As we can extend classes in OOP, we can extend classes but in css (in order to remove duplication and get the styles of a certain class applied by another class)
 ___
 You can `@extend` a class, or a placeholder, but you `@include` a mixin . 
+___
+Regarding L8 create triangle with if and else, there is a small but an important tweak that you need to be aware of on using placeholders .   
+[I wrote an article about it in arabic . ](https://www.facebook.com/share/p/18woUnn9uu/)
