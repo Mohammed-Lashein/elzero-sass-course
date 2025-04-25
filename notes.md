@@ -11,3 +11,5 @@ You can `@extend` a class, or a placeholder, but you `@include` a mixin .
 ___
 Regarding L8 create triangle with if and else, there is a small but an important tweak that you need to be aware of on using placeholders .   
 [I wrote an article about it in arabic . ](https://www.facebook.com/share/p/18woUnn9uu/)
+____
+The style of commits used in this repo is called **conventional commits** . I highly encourage you to read about it .   
