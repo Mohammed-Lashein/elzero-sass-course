@@ -143,12 +143,6 @@ $arrow_direction: "right";
   transform: translateX(-50%);
   border-bottom-color: red;
 }
-%arrow_pointing_to_the_right {
-  top: 50%;
-  right: -40px;
-  transform: translateY(-50%);
-  border-left-color: red;
-}
 
 .arrow-container {
   border: 1px solid black;
@@ -180,9 +174,9 @@ $arrow_direction: "right";
 	}
 }
 
-// %arrow_pointing_to_the_right {
-//   top: 50%;
-//   right: -40px;
-//   transform: translateY(-50%);
-//   border-left-color: red;
-// }
+%arrow_pointing_to_the_right {
+  top: 50%;
+  right: -40px;
+  transform: translateY(-50%);
+  border-left-color: red;
+}
