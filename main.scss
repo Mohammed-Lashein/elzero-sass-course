@@ -136,7 +136,7 @@ $rounded: false;
 
 // Arrow container assignment
 // sass code -- ignoring js style of variable declaration
-$arrow_direction: "right";
+$arrow_direction: "left";
 %arrow_pointing_upwards {
   top: -40px;
   left: 50%;
@@ -165,7 +165,7 @@ $arrow_direction: "right";
     } @else if $arrow_direction == 'right' {
       @extend %arrow_pointing_to_the_right;
     } @else if $arrow_direction == 'bottom' {
-      @extend %arrow_pointing_to_downwards;
+      @extend %arrow_pointing_downwards;
     } @else if $arrow_direction == 'left' {
       @extend %arrow_pointing_to_the_left;
     } @else {
@@ -179,4 +179,18 @@ $arrow_direction: "right";
   right: -40px;
   transform: translateY(-50%);
   border-left-color: red;
+}
+%arrow_pointing_downwards {
+	bottom: -40px;
+  left: 50%;
+	// right is not working for some unknown reason to me !
+	// right: 50%;
+  transform: translateX(-50%);
+  border-top-color: red;
+}
+%arrow_pointing_to_the_left {
+	top: 50%;
+  left: -40px;
+  transform: translateY(-50%);
+  border-right-color: red;
 }
