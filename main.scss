@@ -232,3 +232,43 @@ $dimensions: 0;
 	}
 	$dimensions: $dimensions + 100;
 }
+
+// each
+$themes: red, green, blue, orange;
+
+@each $theme in $themes {
+	.#{$theme}-theme {
+		.product {
+			background-color: white;
+			border-bottom: 2px solid $theme;
+			.title {
+				color: $theme;
+				font-weight: bold;
+			}
+		}
+	}
+}
+$socials: (
+	'fb': blue,
+	'yt': red,
+	'github': black
+);
+@each $platform, $color in $socials {
+	.#{$platform} {
+		background-color: $color;
+		color: white;
+		&::before {
+			content: $platform;
+		}
+	}
+}
+// destructuring = إعادة توزيع البيانات
+$classes: "one" 20px red, "two" 24px green, "three" 28px blue;
+@each $class_name, $font_size, $color in $classes {
+	.#{$class_name} {
+		font-size: $font_size;
+		background-color: $color;
+		color: white;
+		padding: $font_size / 2;
+	}
+}
