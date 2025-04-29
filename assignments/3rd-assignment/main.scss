@@ -1,6 +1,7 @@
-// 1st assignment
 @use "../../sass/helpers/mixins" as *;
+@use "sass:math";
 
+// 1st assignment
 .element {
 	&::before {
 		@include arrow("top");
@@ -61,7 +62,8 @@ $init: 1;
 	.circle-#{$init * 100} {
 		width: #{$init * 100}px;
 		height: #{$init * 100}px;
-		border-radius: #{($init * 100) / 2}px;
+		// border-radius: #{($init * 100) / 2}px; // This is deprecated syntax
+		border-radius: #{math.div(($init * 100), 2)}px;
 	}
 	$init: $init + 1;
 }
@@ -70,7 +72,8 @@ $init: 1;
 	.circle-#{$i * 100} {
 		width: #{$i * 100}px;
 		height: #{$i * 100}px;
-		border-radius: #{($i * 100) / 2}px;
+		// border-radius: #{($i * 100) / 2}px; // This is deprecated syntax
+		border-radius: #{math.div(($i * 100), 2)}px;
 	}
 }
 // 6th assignment
