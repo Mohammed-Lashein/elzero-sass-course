@@ -5,6 +5,7 @@
 @use "./sass/variables/media-queries";
 // Forgettin as * is a source of many frustration !
 @use "./sass/helpers/mixins" as *;
+@use "./sass/helpers/functions" as *;
 
 .main {
 	color: dodgerblue;
@@ -286,4 +287,13 @@ $grid_cols: 12;
 	.col-#{$i} {
 		width: percentage($i / $grid_cols);
 	}
+}
+
+// functions 
+$width: 121px;
+.element-using-fn {
+	width: $width;
+	height: half($width);
+	// the 10px is just a space between the el and the other elements 
+	top: calculateTopOffset(100px, 110px, 150px) + 10px;
 }
