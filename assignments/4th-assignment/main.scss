@@ -1,28 +1,19 @@
+@use "../../sass/helpers/functions" as *;
 // 1st assignment
-$num: 2;
+
+// $num: 2;
 $start: 100;
-
-@function double($size) {
-  @return $size * $num;
-}
-
 @for $i from 1 through 5 {
-  .class-#{($start)} {
-    width: $start;
-    height: double($start);
-  }
-  $start: double($start);
+	.class-#{($start)} {
+		width: $start;
+		height: double($start);
+	}
+	$start: double($start);
 }
 // 2nd assignment
 // SASS Code
-@function get-total($numbers...) {
-  $total: 0;
-  @each $num in $numbers {
-    $total: $total + $num;
-  }
-  @return $total;
-}
+
 .box {
-  top: get-total(100, 50, 20);
-  right: get-total(100, 50);
+	top: get-total(100, 50, 20);
+	right: get-total(100, 50);
 }

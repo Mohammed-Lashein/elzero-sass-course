@@ -1,10 +1,25 @@
 @function half($num) {
-  @return $num / 2;
+	@return $num / 2;
 }
 @function calculateTopOffset($offsets...) {
-  $total: 0;
-  @each $offset in $offsets {
-    $total : $total + $offset;
-  }
-  @return $total;
+	$total: 0;
+	@each $offset in $offsets {
+		$total: $total + $offset;
+	}
+	@return $total;
+}
+
+// 4th assignments bundle
+// 1st assignment
+$num: 2;
+@function double($size) {
+	@return $size * $num;
+}
+// 2nd assignment
+@function get-total($numbers...) {
+	$total: 0;
+	@each $num in $numbers {
+		$total: $total + $num;
+	}
+	@return $total;
 }
