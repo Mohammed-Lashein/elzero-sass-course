@@ -140,14 +140,14 @@ $rounded: false;
 // sass code -- ignoring js style of variable declaration
 $arrow_direction: "left";
 %arrow_pointing_upwards {
-  top: -40px;
-  left: 50%;
-  transform: translateX(-50%);
-  border-bottom-color: red;
+	top: -40px;
+	left: 50%;
+	transform: translateX(-50%);
+	border-bottom-color: red;
 }
 
 .arrow-container {
-  border: 1px solid black;
+	border: 1px solid black;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -160,55 +160,52 @@ $arrow_direction: "left";
 		content: "";
 		position: absolute;
 		border: 20px solid transparent;
-    // I found that the element is centered by default, but I will add the below 
-    // code anyway for the sake of completeness
-    @if $arrow_direction == 'top' {
-      @extend %arrow_pointing_upwards;
-    } @else if $arrow_direction == 'right' {
-      @extend %arrow_pointing_to_the_right;
-    } @else if $arrow_direction == 'bottom' {
-      @extend %arrow_pointing_downwards;
-    } @else if $arrow_direction == 'left' {
-      @extend %arrow_pointing_to_the_left;
-    } @else {
-      @error "The provided direction #{$arrow_direction} is not valid";
-    }
+		// I found that the element is centered by default, but I will add the below
+		// code anyway for the sake of completeness
+		@if $arrow_direction == "top" {
+			@extend %arrow_pointing_upwards;
+		} @else if $arrow_direction == "right" {
+			@extend %arrow_pointing_to_the_right;
+		} @else if $arrow_direction == "bottom" {
+			@extend %arrow_pointing_downwards;
+		} @else if $arrow_direction == "left" {
+			@extend %arrow_pointing_to_the_left;
+		} @else {
+			@error "The provided direction #{$arrow_direction} is not valid";
+		}
 	}
 }
 
 %arrow_pointing_to_the_right {
-  top: 50%;
-  right: -40px;
-  transform: translateY(-50%);
-  border-left-color: red;
+	top: 50%;
+	right: -40px;
+	transform: translateY(-50%);
+	border-left-color: red;
 }
 %arrow_pointing_downwards {
 	bottom: -40px;
-  left: 50%;
+	left: 50%;
 	// right is not working for some unknown reason to me !
 	// right: 50%;
-  transform: translateX(-50%);
-  border-top-color: red;
+	transform: translateX(-50%);
+	border-top-color: red;
 }
 %arrow_pointing_to_the_left {
 	top: 50%;
-  left: -40px;
-  transform: translateY(-50%);
-  border-right-color: red;
+	left: -40px;
+	transform: translateY(-50%);
+	border-right-color: red;
 }
 
 // Mixin and include
 
-
 .links {
 	@include list-reset();
-} 
-
+}
 
 .cirlce-100 {
 	@include circle(100px);
 }
-
 
 .circle-center {
 	@include circle(12px);
@@ -249,9 +246,9 @@ $themes: red, green, blue, orange;
 	}
 }
 $socials: (
-	'fb': blue,
-	'yt': red,
-	'github': black
+	"fb": blue,
+	"yt": red,
+	"github": black,
 );
 @each $platform, $color in $socials {
 	.#{$platform} {
@@ -281,4 +278,12 @@ $start: 1;
 		height: ($start * 100px) / 2;
 	}
 	$start: $start + 1;
+}
+
+// bootstrap grid system
+$grid_cols: 12;
+@for $i from 1 through $grid_cols {
+	.col-#{$i} {
+		width: percentage($i / $grid_cols);
+	}
 }
