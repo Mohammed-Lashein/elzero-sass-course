@@ -52,6 +52,15 @@
 	&::placeholder {
 		@content;
 	}
+	&::-moz-placeholder {
+		@content;
+	}
+	&::-ms-input-placeholder {
+		@content;
+	}
+	&::-webkit-input-placeholder {
+		@content;
+	}
 }
 // 7th assignment
 // default values for mixin params are also explained in the aforementioned page
