@@ -11,3 +11,53 @@
 	justify-content: center;
 	align-items: center;
 }
+
+// 3rd assignments bundle
+
+// 3rd assignment
+@mixin arrow($direction) {
+	content: "";
+	position: absolute;
+	border: 20px solid transparent;
+	@if $direction == "top" {
+		left: 50%;
+		transform: translateX(-50%);
+		top: -40px;
+		border-bottom-color: red;
+	} @else if ($direction == "right") {
+		top: 50%;
+		transform: translateY(-50%);
+		right: -40px;
+		border-left-color: red;
+	} @else if($direction == "bottom") {
+		left: 50%;
+		transform: translateX(-50%);
+		bottom: -40px;
+		border-top-color: red;
+	} @else if($direction == "left") {
+		top: 50%;
+		transform: translateY(-50%);
+		left: -40px;
+		border-right-color: red;
+	}
+}
+// 6th assignment
+@mixin placeholder {
+	// You can find more about @content (which weren't explained in the course ) in
+	// https://sass-lang.com/documentation/at-rules/mixin/#content-blocks
+	// @content is similar to <x-slot> in laravel blade
+	&.placeholder {
+		@content;
+	}
+	&::placeholder {
+		@content;
+	}
+}
+// 7th assignment
+// default values for mixin params are also explained in the aforementioned page
+@mixin flex-center($width: 400px) {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: $width;
+}

@@ -1,0 +1,88 @@
+// 1st assignment
+@use "../../sass/mixins/helpers" as *;
+
+.element {
+	&::before {
+		@include arrow("top");
+	}
+}
+.element {
+	&::before {
+		@include arrow("right");
+	}
+}
+.element {
+	&::before {
+		@include arrow("bottom");
+	}
+}
+.element {
+	&::before {
+		@include arrow("left");
+	}
+}
+
+// 2nd assignment
+/* 
+  A good note from the mixins documentation page : 
+  Variables using either _ or - are treated as the same variable . 
+  This is because sass started with supporting just underscores, but later added
+  hyphens to support css syntax, so the 2 syntaxes were made equivalent to make migration easier . 
+*/
+$grid-cols: 16;
+@for $i from 1 through $grid-cols {
+	.col-#{$i} {
+		width: percentage($i / 16);
+	}
+}
+// 3rd assignment
+// prettier-ignore
+$names:
+  "books" 20px red 18,
+  "games" 30px green 18,
+  "dvds" 20px blue;
+@each $class_name, $padding, $color, $font-size in $names {
+	.#{$class_name} {
+		padding: $padding;
+		// sass treats '' as truthy so you should be explicit and use null
+		// @if($font-size == '') {
+		@if ($font-size == null) {
+			font-size: 16px;
+		} @else {
+			font-size: #{$font-size + "px"};
+		}
+		border-bottom: 2px solid #{$color};
+		color: #444;
+	}
+}
+// 4th assignment
+$init: 1;
+@while ($init <= 5) {
+	.circle-#{$init * 100} {
+		width: #{$init * 100}px;
+		height: #{$init * 100}px;
+		border-radius: #{($init * 100) / 2}px;
+	}
+	$init: $init + 1;
+}
+// 5th assignment
+@for $i from 1 through 5 {
+	.circle-#{$i * 100} {
+		width: #{$i * 100}px;
+		height: #{$i * 100}px;
+		border-radius: #{($i * 100) / 2}px;
+	}
+}
+// 6th assignment
+textarea {
+	@include placeholder {
+		color: #777;
+	}
+}
+// 7th assignment
+.box-one {
+	@include flex-center(400px);
+}
+.box-two {
+	@include flex-center;
+}
