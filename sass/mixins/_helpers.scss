@@ -1,0 +1,13 @@
+@mixin list-reset {
+	list-style-type: none;
+}
+@mixin circle($dimentions) {
+	width: $dimentions;
+	height: $dimentions;
+	border-radius: 50%;
+}
+@mixin centering {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}

@@ -3,6 +3,8 @@
 @use "./sass/pages/contact";
 @use "./sass/variables/colors-hero";
 @use "./sass/variables/media-queries";
+// Forgettin as * is a source of many frustration !
+@use "./sass/mixins/helpers" as *;
 
 .main {
 	color: dodgerblue;
@@ -193,4 +195,23 @@ $arrow_direction: "left";
   left: -40px;
   transform: translateY(-50%);
   border-right-color: red;
+}
+
+// Mixin and include
+
+
+.links {
+	@include list-reset();
+} 
+
+
+.cirlce-100 {
+	@include circle(100px);
+}
+
+
+.circle-center {
+	@include circle(12px);
+	@include centering;
+	border: 1px solid black;
 }
