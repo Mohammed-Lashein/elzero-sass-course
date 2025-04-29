@@ -70,3 +70,24 @@
 	align-items: center;
 	width: $width;
 }
+
+// L18 @media
+@mixin breakpoints($value) {
+	@if $value == mobile {
+		@media (max-width: 767px) {
+			@content;
+		}
+	} @else if($value == small) {
+		@media (min-width: 768px) and (max-width: 991px) {
+			@content;
+		}
+	} @else if($value == medium) {
+		@media (min-width: 992px) and (max-width: 1199px) {
+			@content;
+		} 
+	} @else if($value == large) {
+		@media (min-width: 1200px) {
+			@content;
+		}
+	}
+}

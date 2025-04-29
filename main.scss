@@ -61,6 +61,16 @@ $alt_color: green;
 	padding: 20px;
 }
 .parent {
+	/* Adding the below color property (or any other property ) is important otherwise
+	sass will output an empty parent class (which will show a css warning ) . 
+	
+	The reason for that ? 
+	=> since we declared .parent as a parent class, sass compiles it in the final css 
+	(that's what chat said ) . 
+	
+	In a more complete setup, we will have tools that remove empty css classes so this 
+	won't be an issue */
+	color: lightseagreen;
 	> .child {
 		margin: 20px;
 	}
@@ -300,3 +310,10 @@ $width: 121px;
 
 // skipped the code for L17 practice mixin with content as we trained on it in the 
 // previous assignment
+
+// @media lesson 18
+.media {
+	@include breakpoints(small) {
+		font-weight: bold;
+	}
+}
