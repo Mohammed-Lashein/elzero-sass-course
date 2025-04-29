@@ -1,0 +1,99 @@
+// 1st assignment
+
+$main: "school";
+$child: "box";
+$language: "en"; // English
+$gap: 20px;
+
+// Output
+.#{$main} {
+	padding: $gap;
+	@if $language == "en" {
+		direction: ltr;
+	}
+	@if $language == "ar" {
+		direction: rtl;
+	}
+	margin-left: $gap;
+}
+.#{$main} .#{$main}-#{$child} {
+	padding: $gap / 2;
+}
+.#{$main}:hover .#{$main}-#{$child} {
+	background-color: #eee;
+}
+// 2nd assignment
+
+// SASS Code
+$main-color: red;
+$alt-color: blue;
+
+// Needed Output
+/* Theme Version: 1.0 */
+/* Website Theme Main Color Is: #{$main-color} */
+/* Website Theme Alternate Color Is: #{$alt-color} */
+
+// 3rd assignment
+
+// SASS Code
+// $number: 10;
+$number: 8;
+// $number: 5;
+
+// Larger Than 8
+// .class {
+//   color: blue;
+// }
+
+// // Larger Than 5
+// .class {
+//   color: green;
+// }
+
+// // Anything Else
+// .class {
+//   color: red;
+// }
+
+.class {
+  @if $number > 8 {
+    color: blue;
+  } @else if $number > 5 {
+    color: green;
+  } @else {
+    color: red;
+  }
+}
+
+// 4th assignment
+// SASS Code
+$number: 10;
+$color: red;
+$theme: light;
+
+// Write If Condition Code Here
+.class-4 {
+  @if $number > 5 and $color == 'red' and $theme not 'dark' {
+    color: red;
+  }
+}
+// Output
+// .class {
+//   color: red;
+// }
+
+// 5th assignment
+// Using this var name as it is won't cause any issues since sass vars don't have js
+// let keyword rules
+$number: 8;
+
+.box-5 {
+  @if $number >= 9 {
+  background-color: #eee;
+    @if $number == 10 {
+      text-align: center;
+    }
+  } 
+}
+// It seems that by default sass doesn't add empty classes to compiled css
+// .boxey {}
